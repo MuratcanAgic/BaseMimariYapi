@@ -1,0 +1,42 @@
+﻿@model List<Deneme_1.Business.Dtos.ProductViewDto>
+
+<div class="container">
+
+  <div class="row mb-2">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h5>Ürün Oluştur</h5>
+          <div asp-validation-summary="All"></div>
+        </div>
+        <div class="card-body">
+          <form asp-controller="Home" asp-action="Add" method="post" class="d-flex align-items-center">
+            <div class="container">
+              @foreach (var item in Model)
+              {
+                <div class="row mb-4">
+                  <div class="col">
+                    <label asp-for="@item.Name" class="mb-2"></label>
+                    <input type="text" asp-for="@item.Name" class="form-control" placeholder="Ad" />
+                    <span asp-validation-for="@item.Name" class="text-danger"></span>
+                  </div>
+                  <div class="col">
+                    <label asp-for="@item.Price" class="mb-2"></label>
+                    <input type="text" asp-for="@item.Price" class="form-control" placeholder="Ad" />
+                    <span asp-validation-for="@item.Price" class="text-danger"></span>
+                  </div>
+                </div>
+              }
+              <div class="row mb-2">
+                <div class="col">
+                  <button type="submit" class="btn btn-warning" style="width:150px">Oluştur</button>
+                  <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="width:150px">Listeye Dön</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
